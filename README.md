@@ -26,3 +26,8 @@ For this challenged I was tempted to put underlines and fancy fade in/out animat
 Navigation Items that were not selected did not display much transition at all, it seemed static/unchanged upon its `hover state`.
 
 Therefore I took that seriously and I attempted to recreate the same but with interactivity!
+
+I took a quick second swing at it after the first commit to consider accessibility and responsiveness. 
+
+Made sure that it would not disrupt the sample image idea by disabling keyboard UI changes until a key was touched. ARIA users can still get fully accessible interactions with their screen readers.
+

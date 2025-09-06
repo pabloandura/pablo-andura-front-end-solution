@@ -8,18 +8,24 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <nav class="navigation">
-        <ul class="nav-list">
-            <li class="nav-item">
-                <a href="#" class="nav-link">Animation</a>
+    <nav class="navigation" role="navigation" aria-label="Main navigation">
+        <ul class="nav-list" role="tablist">
+            <li class="nav-item" role="none">
+                <a href="#animation" class="nav-link" role="tab" aria-selected="false" tabindex="-1" 
+                   aria-describedby="nav-instructions">Animation</a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link active">Branding</a>
+            <li class="nav-item" role="none">
+                <a href="#branding" class="nav-link active" role="tab" aria-selected="true" tabindex="0" 
+                   aria-describedby="nav-instructions">Branding</a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Illustration</a>
+            <li class="nav-item" role="none">
+                <a href="#illustration" class="nav-link" role="tab" aria-selected="false" tabindex="-1" 
+                   aria-describedby="nav-instructions">Illustration</a>
             </li>
         </ul>
+        <div id="nav-instructions" class="sr-only">
+            Use arrow keys to navigate, Enter or Space to select. Navigation has 3 items.
+        </div>
     </nav>
 </body>
 </html>
