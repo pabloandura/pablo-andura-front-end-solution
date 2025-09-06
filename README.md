@@ -31,3 +31,12 @@ I took a quick second swing at it after the first commit to consider accessibili
 
 Made sure that it would not disrupt the sample image idea by disabling keyboard UI changes until a key was touched. ARIA users can still get fully accessible interactions with their screen readers.
 
+### Challenge 2 - Gradient background logo
+
+Here my solution is much simpler. The requirements read as a basic html + css solution. So I did not include any javascript external file.
+
+```md
+Recreate this gradient background with a centered logo
+```
+
+I made sure to consider accessibility and responsiveness so I gave aria tags, mobile-first and prefers-reduced-motion settings awareness.

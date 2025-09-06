@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #a8e6cf 0%, #dda0dd 50%, #c8a2c8 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/** Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .logo-card {
+        transition: box-shadow 0.2s ease;
+    }
+    
+    .logo-card:hover,
+    .logo-card:focus {
+        transform: none;
+    }
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/** Mobile-first logo card */
+.logo-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    padding: 1.75rem 1.25rem;
+    box-shadow: 
+        0 0.5rem 2rem rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 7.5rem;
+    height: 7.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    outline-offset: 0.125rem;
+}
+
+.logo-card:hover,
+.logo-card:focus {
+    transform: translateY(-0.25rem);
+    box-shadow: 
+        0 1rem 3rem rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+.logo-card:focus {
+    outline: 0.125rem solid #0066cc;
+}
+
+.logo-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+}
+
+.logo-icon img {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.logo-text {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #4a4a4a;
+    letter-spacing: -0.03125rem;
+    margin-bottom: 0.125rem;
+}
+
+/** Progressive enhancement for larger screens */
+@media (min-width: 30rem) {
+    .logo-card {
+        width: 9.375rem;
+        height: 9.375rem;
+        padding: 2.25rem 1.75rem;
+        border-radius: 1.875rem;
+        gap: 0.75rem;
+    }
+    
+    .logo-icon {
+        width: 3.125rem;
+        height: 3.125rem;
+    }
+    
+    .logo-icon img {
+        width: 3.125rem;
+        height: 3.125rem;
+    }
+    
+    .logo-text {
+        font-size: 1.125rem;
+    }
+}
+
+@media (min-width: 48rem) {
+    .logo-card {
+        width: 11.25rem;
+        height: 11.25rem;
+        padding: 2.25rem 1.5rem;
+        border-radius: 2.25rem;
+        gap: 0.5rem;
+    }
+    
+    .logo-icon {
+        width: 5rem;
+        height: 5rem;
+    }
+    
+    .logo-icon img {
+        width: 5rem;
+        height: 5rem;
+    }
+    
+    .logo-text {
+        font-size: 1.25rem;
+    }
+}
