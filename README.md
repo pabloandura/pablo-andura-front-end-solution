@@ -40,3 +40,12 @@ Recreate this gradient background with a centered logo
 ```
 
 I made sure to consider accessibility and responsiveness so I gave aria tags, mobile-first and prefers-reduced-motion settings awareness.
+
+### Challenge 3 - Website header
+
+This one was a little more challenging due to the visual detail I wanted to ensure. 
+I also though of accessibility and responsiveness.
+
+Images I used as advised.
+
+

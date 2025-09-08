@@ -1,11 +1,110 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Website tests</title>
-	</head>
-	<body>
-		
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pablo Andura - Website Header - Summer 2020 Collection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
+            <div class="nav-left">
+                <button class="menu-btn" aria-label="Open main menu" aria-expanded="false" type="button">
+                    <span class="menu-icon" aria-hidden="true"></span>
+                    <span>Menu</span>
+                </button>
+            </div>
+            <div class="nav-right">
+                <button class="lang-btn" aria-label="Change language from English" type="button">ENG</button>
+            </div>
+        </nav>
+
+        <main class="main-content" role="main">
+            <section class="hero-section" aria-labelledby="hero-heading">
+                <div class="hero-image">
+                    <img src="https://images.pexels.com/photos/1065084/pexels-photo-1065084.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                         alt="Female model wearing summer fashion from the 2020 collection" 
+                         loading="eager" />
+                    <div class="hero-text">
+                        <h1 id="hero-heading" class="season">Summer</h1>
+                        <div class="year" aria-label="Year 2020">2020</div>
+                        <div class="collection-info" aria-hidden="true">
+                            <span>Summer</span>
+                            <span>Collection</span>
+                            <span>2020</span>
+                        </div>
+                    </div>
+                    <div class="navigation-controls" role="group" aria-label="Collection navigation">
+                        <button class="nav-btn prev-btn" aria-label="View previous collection" type="button">Previous</button>
+                        <button class="nav-btn next-btn" aria-label="View next collection" type="button">Next</button>
+                    </div>
+                    <section class="shop-section">
+                        <a href="#shop" class="shop-btn" role="button" aria-describedby="shop-desc">
+                            <span>SHOP NOW</span>
+                            <span id="shop-desc" class="sr-only">Browse the complete Summer 2020 collection</span>
+                        </a>
+                    </section>
+                    <nav class="social-links" role="navigation" aria-label="Social media links">
+                        <a href="#facebook" class="social-link" aria-label="Follow us on Facebook">FB</a>
+                        <a href="#pinterest" class="social-link" aria-label="Follow us on Pinterest">PIN</a>
+                        <a href="#instagram" class="social-link" aria-label="Follow us on Instagram">IG</a>
+                    </nav>
+                </div>
+            </section>
+
+            <aside class="sidebar" role="complementary" aria-label="Featured products and actions">
+                <section class="product-gallery" aria-labelledby="products-heading">
+                    <h2 id="products-heading" class="sr-only">Featured Products</h2>
+                    <div class="gallery-container">
+                        <article class="product-item">
+                            <img src="https://images.pexels.com/photos/1021693/pexels-photo-1021693.jpeg?auto=compress&cs=tinysrgb&w=300" 
+                                 alt="Summer dress with floral pattern" 
+                                 loading="lazy" />
+                        </article>
+                        <article class="product-item">
+                            <img src="https://images.pexels.com/photos/1895943/pexels-photo-1895943.jpeg?auto=compress&cs=tinysrgb&w=300" 
+                                 alt="Casual summer outfit with light fabrics" 
+                                 loading="lazy" />
+                        </article>
+                        <article class="product-item">
+                            <img src="https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=300" 
+                                 alt="Elegant summer blouse" 
+                                 loading="lazy" />
+                        </article>
+                        <article class="product-item">
+                            <img src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=300" 
+                                 alt="Summer casual wear collection" 
+                                 loading="lazy" />
+                        </article>
+                        <article class="product-item">
+                            <img src="https://images.pexels.com/photos/1391498/pexels-photo-1391498.jpeg?auto=compress&cs=tinysrgb&w=300" 
+                                 alt="Light summer dress" 
+                                 loading="lazy" />
+                        </article>
+                        <article class="product-item">
+                            <img src="https://images.pexels.com/photos/1192609/pexels-photo-1192609.jpeg?auto=compress&cs=tinysrgb&w=300" 
+                                 alt="Summer evening wear" 
+                                 loading="lazy" />
+                        </article>
+                    </div>
+                </section>
+
+                <div class="year-indicator" aria-label="Next season preview">
+                    <span>Fall 2020/2021</span>
+                </div>
+
+                <nav class="social-links" role="navigation" aria-label="Social media links">
+                    <a href="#facebook" class="social-link" aria-label="Follow us on Facebook">FB</a>
+                    <a href="#pinterest" class="social-link" aria-label="Follow us on Pinterest">PIN</a>
+                    <a href="#instagram" class="social-link" aria-label="Follow us on Instagram">IG</a>
+                </nav>
+            </aside>
+        </main>
+    </header>
+</body>
 </html>
