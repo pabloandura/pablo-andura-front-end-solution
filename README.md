@@ -21,7 +21,7 @@ We will worry about that after completing our, previously mentioned, first part 
 
 ### Challenge 1 - Navigation Hover
 
-For this challenged I was tempted to put underlines and fancy fade in/out animations but then I noticed that our reference Image showed a detail. 
+For this challenge I was tempted to put underlines and fancy fade in/out animations but then I noticed that our reference Image showed a detail. 
 
 Navigation Items that were not selected did not display much transition at all, it seemed static/unchanged upon its `hover state`.
 
