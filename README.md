@@ -1,8 +1,5 @@
 # Introduction to my take on the challenge!
 
-by Pablo Andura
-
-
 ## Short summary
 
 I noticed each folder had `html` files with the acceptance criteria. So I hacked them a little bit to provide the most simple and familiar reviewing experience.
@@ -14,10 +11,6 @@ For the svelte section I have the `5. Svelte` folder which is a sibling of this 
 ### First steps
 
 Initially I worked on all four HTML + CSS + JS challenges. 
-
-I pondered along the way how to include these inside of an SPA with Svelte. They really are a Set, they could all be in one page!
-
-We will worry about that after completing our, previously mentioned, first part of the challenge.
 
 ### Challenge 1 - Navigation Hover
 
