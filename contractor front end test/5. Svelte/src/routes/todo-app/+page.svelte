@@ -196,9 +196,6 @@
 		animation: bounce-once 0.6s ease-in-out;
 	}
 
-	.animate-pulse-once {
-		animation: pulse-once 0.6s ease-in-out;
-	}
 </style>
 
 <BackButton />
