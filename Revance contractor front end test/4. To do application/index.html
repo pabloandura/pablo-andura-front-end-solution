@@ -1,11 +1,79 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Website tests</title>
-	</head>
-	<body>
-		
-	</body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pablo Andura - 4. To-Do Application</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="todo-card">
+            <header class="header">
+                <h1 class="month">December</h1>
+                <p class="date">Tuesday, December 22</p>
+            </header>
+            
+            <main class="main">
+                <section aria-labelledby="todo-heading">
+                    <h2 id="todo-heading" class="visually-hidden">Your Tasks</h2>
+                    <ul class="todo-list" id="todoList" role="list" aria-live="polite">
+                        <li class="todo-item completed" role="listitem" tabindex="0" aria-describedby="todo-1-status">
+                            <span class="todo-text">Buy new sweatshirt</span>
+                            <button class="emoji happy" aria-label="Mark as incomplete" data-status="completed">😊</button>
+                            <span id="todo-1-status" class="visually-hidden">Completed task</span>
+                        </li>
+                        
+                        <li class="todo-item completed" role="listitem" tabindex="0" aria-describedby="todo-2-status">
+                            <span class="todo-text">Read an article</span>
+                            <button class="emoji happy" aria-label="Mark as incomplete" data-status="completed">😊</button>
+                            <span id="todo-2-status" class="visually-hidden">Completed task</span>
+                        </li>
+                        
+                        <li class="todo-item" role="listitem" tabindex="0" aria-describedby="todo-3-status">
+                            <span class="todo-text">Write blog post</span>
+                            <button class="emoji sad" aria-label="Mark as complete" data-status="incomplete">😕</button>
+                            <span id="todo-3-status" class="visually-hidden">Incomplete task</span>
+                        </li>
+                        
+                        <li class="todo-item" role="listitem" tabindex="0" aria-describedby="todo-4-status">
+                            <span class="todo-text">Watch "Mr Robot"</span>
+                            <button class="emoji sad" aria-label="Mark as complete" data-status="incomplete">😕</button>
+                            <span id="todo-4-status" class="visually-hidden">Incomplete task</span>
+                        </li>
+                        
+                        <li class="todo-item" role="listitem" tabindex="0" aria-describedby="todo-5-status">
+                            <span class="todo-text">Run</span>
+                            <button class="emoji sad" aria-label="Mark as complete" data-status="incomplete">😕</button>
+                            <span id="todo-5-status" class="visually-hidden">Incomplete task</span>
+                        </li>
+                    </ul>
+                </section>
+                
+                <section aria-labelledby="add-todo-heading">
+                    <h2 id="add-todo-heading" class="visually-hidden">Add New Task</h2>
+                    <div class="add-todo" role="group" aria-labelledby="add-todo-heading">
+                        <label for="todoInput" class="visually-hidden">New task description</label>
+                        <input 
+                            type="text" 
+                            id="todoInput" 
+                            class="todo-input" 
+                            placeholder="Add Task"
+                            maxlength="50"
+                            aria-describedby="input-help"
+                        >
+                        <div id="input-help" class="visually-hidden">Enter a task description up to 50 characters</div>
+                        <button id="addButton" class="add-btn" type="button" aria-describedby="add-help">Add</button>
+                        <div id="add-help" class="visually-hidden">Add the new task to your list</div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
 </html>

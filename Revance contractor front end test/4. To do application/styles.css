@@ -1,0 +1,329 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #e8e8e8, #f5f5f5);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.todo-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px 16px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.todo-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.month {
+    font-size: 24px;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.date {
+    font-size: 14px;
+    font-weight: 400;
+    color: #a0aec0;
+    letter-spacing: 0.2px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 280px;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    outline: none;
+    border-radius: 4px;
+}
+
+.todo-item:hover,
+.todo-item:focus {
+    padding-left: 8px;
+    background: rgba(248, 250, 252, 0.5);
+    border-radius: 8px;
+    border-bottom: 1px solid transparent;
+}
+
+.todo-item:focus {
+    box-shadow: 0 0 0 2px #68d391;
+}
+
+.todo-item:last-child {
+    border-bottom: none;
+}
+
+.todo-text {
+    font-size: 15px;
+    font-weight: 400;
+    color: #4a5568;
+    flex: 1;
+    transition: all 0.3s ease;
+}
+
+.todo-item.completed .todo-text {
+    color: #68d391;
+    position: relative;
+}
+
+.todo-item.completed .todo-text::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    background: #68d391;
+    opacity: 0.6;
+    animation: strikethrough 0.3s ease forwards;
+}
+
+@keyframes strikethrough {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.emoji {
+    font-size: 20px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    outline: none;
+}
+
+.emoji:focus {
+    box-shadow: 0 0 0 2px #68d391;
+}
+
+.emoji.happy {
+    background: rgba(104, 211, 145, 0.2);
+}
+
+.emoji.sad {
+    background: rgba(237, 137, 54, 0.2);
+}
+
+.emoji:hover,
+.emoji:focus {
+    transform: scale(1.1);
+}
+
+.add-todo {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.todo-input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 15px;
+    font-family: inherit;
+    background: rgba(248, 250, 252, 0.5);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.todo-input:focus {
+    border-color: #68d391;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(104, 211, 145, 0.1);
+}
+
+.todo-input::placeholder {
+    color: #a0aec0;
+    font-weight: 300;
+}
+
+.add-btn {
+    width: 100%;
+    padding: 12px 20px;
+    background: #48bb78;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    outline: none;
+}
+
+.add-btn:hover,
+.add-btn:focus {
+    background: #38a169;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(72, 187, 120, 0.4);
+}
+
+.add-btn:focus {
+    box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.3), 0 4px 12px rgba(72, 187, 120, 0.4);
+}
+
+.add-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(72, 187, 120, 0.4);
+}
+
+.add-btn:disabled {
+    background: #cbd5e0;
+    color: #a0aec0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Animation for new todos */
+.todo-item.new {
+    animation: slideIn 0.3s ease forwards;
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Tablet and up */
+@media (min-width: 481px) {
+    body {
+        padding: 20px;
+    }
+    
+    .container {
+        max-width: 400px;
+    }
+    
+    .todo-card {
+        padding: 24px 20px;
+        border-radius: 24px;
+    }
+    
+    .header {
+        margin-bottom: 40px;
+    }
+    
+    .month {
+        font-size: 28px;
+    }
+    
+    .date {
+        font-size: 16px;
+    }
+    
+    .todo-text {
+        font-size: 16px;
+    }
+    
+    .emoji {
+        font-size: 24px;
+        width: 32px;
+        height: 32px;
+    }
+    
+    .todo-input {
+        font-size: 16px;
+        padding: 14px 16px;
+    }
+    
+    .add-btn {
+        font-size: 14px;
+        padding: 14px 24px;
+    }
+    
+    .add-todo {
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .todo-input {
+        flex: 1;
+        width: auto;
+    }
+    
+    .add-btn {
+        width: auto;
+    }
+}
+
+/* Desktop */
+@media (min-width: 769px) {
+    .todo-card {
+        padding: 32px;
+    }
+}
