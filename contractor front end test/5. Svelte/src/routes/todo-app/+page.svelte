@@ -8,6 +8,8 @@
 	let newTodoText = '';
 	let inputElement: HTMLInputElement;
 	let validationMessage = '';
+	let focusedTodoIndex = -1;
+	let todoElements: HTMLElement[] = [];
 
 	$: canAdd = newTodoText.trim().length > 0;
 	$: characterCount = newTodoText.length;
@@ -43,16 +45,82 @@
 		} else if (event.key === 'Escape') {
 			newTodoText = '';
 			validationMessage = '';
+		} else if (event.key === 'ArrowDown' && $todos.length > 0) {
+			// Navigate from input to first todo
+			event.preventDefault();
+			navigateToTodo(0);
 		}
 	}
 
-	function handleTodoKeyPress(event: KeyboardEvent, todoId: number) {
-		if (event.key === 'Delete' || event.key === 'Backspace') {
-			todoActions.remove(todoId);
-		} else if (event.key === 'Enter' || event.key === ' ') {
-			event.preventDefault();
-			toggleTodo(todoId);
+	function handleTodoKeyPress(event: KeyboardEvent, todoId: number, index: number) {
+		switch (event.key) {
+			case 'Delete':
+			case 'Backspace':
+				event.preventDefault();
+				todoActions.remove(todoId);
+				// Focus next item or previous if we deleted the last one
+				setTimeout(() => {
+					const newIndex = index >= $todos.length ? $todos.length - 1 : index;
+					if (newIndex >= 0 && todoElements[newIndex]) {
+						todoElements[newIndex].focus();
+						focusedTodoIndex = newIndex;
+					} else {
+						// No todos left, focus input
+						if (inputElement) inputElement.focus();
+					}
+				}, 50);
+				break;
+				
+			case 'Enter':
+			case ' ':
+				event.preventDefault();
+				toggleTodo(todoId);
+				break;
+				
+			case 'ArrowDown':
+				event.preventDefault();
+				navigateToTodo(index + 1);
+				break;
+				
+			case 'ArrowUp':
+				event.preventDefault();
+				navigateToTodo(index - 1);
+				break;
+				
+			case 'Home':
+				event.preventDefault();
+				navigateToTodo(0);
+				break;
+				
+			case 'End':
+				event.preventDefault();
+				navigateToTodo($todos.length - 1);
+				break;
 		}
+	}
+
+	function navigateToTodo(targetIndex: number) {
+		if (targetIndex < 0 || targetIndex >= $todos.length) {
+			return;
+		}
+		
+		if (todoElements[targetIndex]) {
+			todoElements[targetIndex].focus();
+			focusedTodoIndex = targetIndex;
+		}
+	}
+
+	function handleTodoFocus(index: number) {
+		focusedTodoIndex = index;
+	}
+
+	function handleTodoBlur() {
+		// Small delay to allow focus to move to another todo
+		setTimeout(() => {
+			if (!todoElements.includes(document.activeElement as HTMLElement)) {
+				focusedTodoIndex = -1;
+			}
+		}, 10);
 	}
 
 
@@ -162,18 +230,22 @@
 					{:else}
 						{#each $todos as todo, index (todo.id)}
 							<div 
-								class="flex items-center justify-between py-2 sm:py-3 px-1 sm:px-2 border-b border-gray-100 hover:bg-gray-50/50 rounded-lg transition-all duration-200 group focus-within:ring-2 focus-within:ring-green-400 focus-within:ring-opacity-50"
+								class="flex items-center justify-between py-2 sm:py-3 px-1 sm:px-2 border-b border-gray-100 hover:bg-gray-50/50 rounded-lg transition-all duration-200 group focus-within:ring-2 focus-within:ring-green-400 focus-within:ring-opacity-50 {focusedTodoIndex === index ? 'bg-blue-50 ring-2 ring-blue-400 ring-opacity-50' : ''}"
 								in:flyBounce={{ x: -30, delay: index * 50 }}
 								out:slide={{ duration: 300, easing: quintOut }}
 								animate:flip={{ duration: 300, easing: quintOut }}
 								role="listitem"
 							>
 								<button 
-									class="flex-1 text-left px-1 sm:px-2 py-1 rounded-md transition-all duration-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 {todo.completed ? 'text-green-600 line-through' : 'text-gray-700'} text-sm sm:text-base"
+									bind:this={todoElements[index]}
+									class="flex-1 text-left px-1 sm:px-2 py-1 rounded-md transition-all duration-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 {todo.completed ? 'text-green-600 line-through' : 'text-gray-700'} text-sm sm:text-base"
 									onclick={() => toggleTodo(todo.id)}
-									onkeydown={(e) => handleTodoKeyPress(e, todo.id)}
-									aria-describedby="todo-{todo.id}-status"
-									aria-label="Task: {todo.text}. {todo.completed ? 'Currently completed' : 'Currently incomplete'}. Click to toggle or press Delete to remove."
+									onkeydown={(e) => handleTodoKeyPress(e, todo.id, index)}
+									onfocus={() => handleTodoFocus(index)}
+									onblur={handleTodoBlur}
+									aria-describedby="todo-{todo.id}-status todo-navigation-help"
+									aria-label="Task {index + 1} of {$todos.length}: {todo.text}. {todo.completed ? 'Completed' : 'Incomplete'}. Use arrow keys to navigate, Enter or Space to toggle, Delete to remove."
+									tabindex="{focusedTodoIndex === index || (focusedTodoIndex === -1 && index === 0) ? '0' : '-1'}"
 								>
 									{todo.text}
 								</button>
@@ -189,11 +261,16 @@
 									</span>
 								</button>
 								<span id="todo-{todo.id}-status" class="sr-only">
-									{todo.completed ? 'Completed task' : 'Incomplete task'}. Press Delete to remove.
+									{todo.completed ? 'Completed' : 'Incomplete'}
 								</span>
 							</div>
 						{/each}
 					{/if}
+				</div>
+				
+				<!-- Navigation Help -->
+				<div id="todo-navigation-help" class="sr-only">
+					Keyboard navigation: Arrow keys to move between tasks, Enter or Space to toggle completion, Delete to remove task, Home/End to jump to first/last task.
 				</div>
 			</section>
 
