@@ -6,7 +6,7 @@ by Pablo Andura
 ## Short summary
 
 I noticed each folder had `html` files with the acceptance criteria. So I hacked them a little bit to provide the most simple and familiar reviewing experience.
-For the svelte section I have the `svelte-solution` folder which is a sibling of this documentation, you can look at the README.md file in there for more information.
+For the svelte section I have the `5. Svelte` folder which is a sibling of this documentation, you can look at the README.md file in there for more information.
 
 
 ## Workflow
@@ -53,3 +53,6 @@ Images I used as advised.
 The To Do application was easier that challenge 3, in my eyes it was less about perfect UX/UI matching and more about getting the basic functionality down.
 
 
+### Challenge 5 - Everything in a Svelte application
+
+I am back in my element, this was much easier and I am trying to connect everything we have done so far in a single Svelte experience.
