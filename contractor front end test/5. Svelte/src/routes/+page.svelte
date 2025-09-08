@@ -41,17 +41,10 @@
 		<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16">
 			<div class="text-center">
 				<h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6">
-					<span class="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-						Revance
-					</span>
 					<span class="block text-white/90 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mt-1 sm:mt-2">
 						Frontend Challenge
 					</span>
 				</h1>
-				<p class="text-base sm:text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed px-2">
-					A unified Svelte + Tailwind implementation combining all four UI challenges into one cohesive, 
-					responsive application with modern design patterns and smooth animations.
-				</p>
 			</div>
 		</div>
 	</header>
